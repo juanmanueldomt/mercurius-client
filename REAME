@@ -1,0 +1,354 @@
+ ____________________________________________________
+|                                                    |
+|              PROYECTO MERCURIUS                    |
+|____________________________________________________|
+
+"Vive de manera que puedas mirar fijamente a los ojos
+                    de cualquiera y mandarlo al diablo."
+
+                                |- Henry-Louis Mencken
+
+Nombre clave: MERCURIUS
+Tipo: Aplicacion WEB
+Institucion: UPIICSA
+Fecha de Creacion: 10/11/16
+
+------------------- SINOPSIS -------------------------
+ESTE PROYECTO SURGE PARA CUBRIR LA NECESIDAD DE DIFUSION DEL BOLETIN UNIVERSITARIO EN LA UNIDAD PROFESIONAL INTERDISCIPLINARIA DE INGENIERIA DE CIENCIAS SOCIALES Y ADMINISTRATIVAS PERTETENECIENTE AL INSTITUTO POLITECNICO NACIONAL. EL PLAN GENERAL DICTA QUE SERA UNA APLICACION MOVIL NUTRIDA POR SERVICIOS WEB.
+
+------------------- INSTALACION ----------------------
+--REQUISITOS
+    -MYSQL
+    -APACHE
+    -PHP
+
+--INSTRUCCIONES
+    
+
+
+
+
+
+------------------- VERSIONES ------------------------
+
+    ---- Version 0.0.1     ------
+    13/03/17    @juanmanueldomt
+    -Primera Implementacion 
+    
+      
+    
+
+-------------------- PRUEBAS -------------------------
+    -ninguna
+
+---------------- DESARROLLADORES ---------------------
+Juan Manuel Dominguez Tlapale
+@juanmanueldomt 18/06/1995
+Estudiante Ing Informatica
+UPIICSA
+
+
+------------------- ESQUEMAS --------------------
+--BASE DE DATOS
+
+Boletin_Upiicsa
+    ├── NOTICIA
+    │   ├──── ID_NOTICIA
+    │   ├──── TITULO
+    │   ├──── AUTOR
+    │   ├──── CONTENIDO
+    │   └──── ETIQUETA
+    └── USUARIO
+        ├──── ID_USUARIO
+        ├──── NOMBRE
+        ├──── APELLIDOS
+        ├──── ROL
+        ├──── EMAIL
+        └──── PASSWORD
+
+--ESTRUCTURA
+
+  .
+├── conocenos.php
+├── db.php
+├── editor.php
+├── enviar.php
+├── extras
+│   └── database.sql
+├── header.php
+├── index.php
+├── login.php
+├── logout.php
+├── newuser.php
+├── README
+├── register.php
+├── resources
+│   ├── bootstrap-3.3.5-dist
+│   │   ├── css
+│   │   │   ├── bootstrap.css
+│   │   │   ├── bootstrap.css.map
+│   │   │   ├── bootstrap.min.css
+│   │   │   ├── bootstrap-theme.css
+│   │   │   ├── bootstrap-theme.css.map
+│   │   │   ├── bootstrap-theme-mercurius.css
+│   │   │   └── bootstrap-theme.min.css
+│   │   ├── fonts
+│   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   ├── glyphicons-halflings-regular.woff2
+│   │   │   ├── Roboto-BlackItalic.ttf
+│   │   │   ├── Roboto-Black.ttf
+│   │   │   ├── Roboto-BoldCondensedItalic.ttf
+│   │   │   ├── Roboto-BoldCondensed.ttf
+│   │   │   ├── Roboto-BoldItalic.ttf
+│   │   │   ├── Roboto-Bold.ttf
+│   │   │   ├── Roboto-CondensedItalic.ttf
+│   │   │   ├── Roboto-Condensed.ttf
+│   │   │   ├── Roboto-Italic.ttf
+│   │   │   ├── Roboto-LightItalic.ttf
+│   │   │   ├── Roboto-Light.ttf
+│   │   │   ├── Roboto-MediumItalic.ttf
+│   │   │   ├── Roboto-Medium.ttf
+│   │   │   ├── Roboto-Regular.ttf
+│   │   │   ├── Roboto-ThinItalic.ttf
+│   │   │   └── Roboto-Thin.ttf
+│   │   └── js
+│   │       ├── bootstrap.js
+│   │       ├── bootstrap.min.js
+│   │       ├── docs.min.js
+│   │       ├── ie10-viewport-bug-workaround.js
+│   │       ├── jquery-1.9.1.min.js
+│   │       ├── jssor.slider.mini.js
+│   │       └── npm.js
+│   ├── images
+│   │   ├── 1920
+│   │   │   ├── blue.jpg
+│   │   │   ├── ld.jpg
+│   │   │   └── red.jpg
+│   │   ├── ColoresUpiicsa.jpg
+│   │   └── elements
+│   │       ├── a11.png
+│   │       ├── a21.png
+│   │       ├── b05.png
+│   │       ├── b21.png
+│   │       ├── loading1.gif
+│   │       └── loading.gif
+│   ├── jquery
+│   │   └── jquery-3.1.1.min.js
+│   └── tinymce
+│       ├── changelog.txt
+│       ├── js
+│       │   └── tinymce
+│       │       ├── jquery.tinymce.min.js
+│       │       ├── langs
+│       │       │   └── readme.md
+│       │       ├── license.txt
+│       │       ├── plugins
+│       │       │   ├── advlist
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── anchor
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── autolink
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── autoresize
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── autosave
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── bbcode
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── charmap
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── code
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── codesample
+│       │       │   │   ├── css
+│       │       │   │   │   └── prism.css
+│       │       │   │   ├── plugin.dev.js
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── colorpicker
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── contextmenu
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── directionality
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── emoticons
+│       │       │   │   ├── img
+│       │       │   │   │   ├── smiley-cool.gif
+│       │       │   │   │   ├── smiley-cry.gif
+│       │       │   │   │   ├── smiley-embarassed.gif
+│       │       │   │   │   ├── smiley-foot-in-mouth.gif
+│       │       │   │   │   ├── smiley-frown.gif
+│       │       │   │   │   ├── smiley-innocent.gif
+│       │       │   │   │   ├── smiley-kiss.gif
+│       │       │   │   │   ├── smiley-laughing.gif
+│       │       │   │   │   ├── smiley-money-mouth.gif
+│       │       │   │   │   ├── smiley-sealed.gif
+│       │       │   │   │   ├── smiley-smile.gif
+│       │       │   │   │   ├── smiley-surprised.gif
+│       │       │   │   │   ├── smiley-tongue-out.gif
+│       │       │   │   │   ├── smiley-undecided.gif
+│       │       │   │   │   ├── smiley-wink.gif
+│       │       │   │   │   └── smiley-yell.gif
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── example
+│       │       │   │   ├── dialog.html
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── example_dependency
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── fullpage
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── fullscreen
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── hr
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── image
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── imagetools
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── importcss
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── insertdatetime
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── layer
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── legacyoutput
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── link
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── lists
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── media
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── nonbreaking
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── noneditable
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── pagebreak
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── paste
+│       │       │   │   ├── plugin.dev.js
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── preview
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── print
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── save
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── searchreplace
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── spellchecker
+│       │       │   │   ├── plugin.dev.js
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── tabfocus
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── table
+│       │       │   │   ├── plugin.dev.js
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── template
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── textcolor
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── textpattern
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── toc
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── visualblocks
+│       │       │   │   ├── css
+│       │       │   │   │   └── visualblocks.css
+│       │       │   │   └── plugin.min.js
+│       │       │   ├── visualchars
+│       │       │   │   └── plugin.min.js
+│       │       │   └── wordcount
+│       │       │       └── plugin.min.js
+│       │       ├── skins
+│       │       │   └── lightgray
+│       │       │       ├── AbsoluteLayout.less
+│       │       │       ├── Animations.less
+│       │       │       ├── Arrows.less
+│       │       │       ├── ButtonGroup.less
+│       │       │       ├── Button.less
+│       │       │       ├── Checkbox.less
+│       │       │       ├── ColorBox.less
+│       │       │       ├── ColorButton.less
+│       │       │       ├── ColorPicker.less
+│       │       │       ├── ComboBox.less
+│       │       │       ├── Container.less
+│       │       │       ├── Content.Inline.less
+│       │       │       ├── content.inline.min.css
+│       │       │       ├── Content.less
+│       │       │       ├── content.min.css
+│       │       │       ├── Content.Objects.less
+│       │       │       ├── CropRect.less
+│       │       │       ├── FieldSet.less
+│       │       │       ├── FitLayout.less
+│       │       │       ├── FloatPanel.less
+│       │       │       ├── FlowLayout.less
+│       │       │       ├── fonts
+│       │       │       │   ├── tinymce.eot
+│       │       │       │   ├── tinymce-small.eot
+│       │       │       │   ├── tinymce-small.svg
+│       │       │       │   ├── tinymce-small.ttf
+│       │       │       │   ├── tinymce-small.woff
+│       │       │       │   ├── tinymce.svg
+│       │       │       │   ├── tinymce.ttf
+│       │       │       │   └── tinymce.woff
+│       │       │       ├── Icons.Ie7.less
+│       │       │       ├── Icons.less
+│       │       │       ├── Iframe.less
+│       │       │       ├── ImagePanel.less
+│       │       │       ├── img
+│       │       │       │   ├── anchor.gif
+│       │       │       │   ├── loader.gif
+│       │       │       │   ├── object.gif
+│       │       │       │   └── trans.gif
+│       │       │       ├── InfoBox.less
+│       │       │       ├── Label.less
+│       │       │       ├── ListBox.less
+│       │       │       ├── MenuBar.less
+│       │       │       ├── MenuButton.less
+│       │       │       ├── MenuItem.less
+│       │       │       ├── Menu.less
+│       │       │       ├── Mixins.less
+│       │       │       ├── Notification.less
+│       │       │       ├── Panel.less
+│       │       │       ├── Path.less
+│       │       │       ├── Progress.less
+│       │       │       ├── Radio.less
+│       │       │       ├── Reset.less
+│       │       │       ├── ResizeHandle.less
+│       │       │       ├── Scrollable.less
+│       │       │       ├── SelectBox.less
+│       │       │       ├── Sidebar.less
+│       │       │       ├── skin.dev.less
+│       │       │       ├── skin.ie7.dev.less
+│       │       │       ├── skin.ie7.less
+│       │       │       ├── skin.ie7.min.css
+│       │       │       ├── skin.less
+│       │       │       ├── skin.min.css
+│       │       │       ├── Slider.less
+│       │       │       ├── Spacer.less
+│       │       │       ├── SplitButton.less
+│       │       │       ├── StackLayout.less
+│       │       │       ├── TabPanel.less
+│       │       │       ├── TextBox.less
+│       │       │       ├── Throbber.less
+│       │       │       ├── TinyMCE.less
+│       │       │       ├── ToolTip.less
+│       │       │       ├── Variables.less
+│       │       │       └── Window.less
+│       │       ├── themes
+│       │       │   ├── inlite
+│       │       │   │   └── theme.min.js
+│       │       │   └── modern
+│       │       │       └── theme.min.js
+│       │       └── tinymce.min.js
+│       └── LICENSE.TXT
+├── script.js
+├── scroll.php
+└── show.php
+
+70 directories, 209 files
+
+-------------------- LICENCIA ------------------------
