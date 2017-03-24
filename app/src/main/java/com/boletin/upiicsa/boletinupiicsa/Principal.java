@@ -1,5 +1,6 @@
 package com.boletin.upiicsa.boletinupiicsa;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,9 +14,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 
@@ -25,6 +29,7 @@ public class Principal extends AppCompatActivity
     WebView myWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Metodo Cargado al abrir la aplicacion
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,54 +53,32 @@ public class Principal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        //Buscamos el WebView y le Asignamos Valores Personalizados
         myWebView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient() {
 
-            @Override
-            public void onPageFinished(WebView view, String url) {
-
-                // Inject CSS when page is done loading
-                injectCSS();
-                super.onPageFinished(view, url);
-            }
-        });
-
-        //String style= "<head><link rel=\"stylesheet\" href=\"http://10.42.0.1/mercurius/resources/bootstrap-3.3.5-dist/css/mercurius-client.css\"></head>";
-        //myWebView.loadData(style,"text/html","utf-8");
-
-        myWebView.loadUrl("http://mercurius-swfipn.rhcloud.com/");
-
-
-
-       /* webView = new WebView(this);
-        setContentView(webView);
-
-        // Enable Javascript
-        webView.getSettings().setJavaScriptEnabled(true);
-
-        // Add a WebViewClient
-        webView.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-
-                // Inject CSS when page is done loading
-                injectCSS();
-                super.onPageFinished(view, url);
-            }
-        });
-
-        // Load a webpage
-        webView.loadUrl("http://10.42.0.1/mercurius");
-    */
+        myWebView.setWebViewClient(
+                //Cliente Web Personalizado con Inyeccion de CSS
+                new WebViewClient() {
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        // Inyectamos cuando lapagina haya terminado de cargarse
+                        injectCSS();
+                        super.onPageFinished(view, url);
+                    }
+                });
+        //Creamos una Interfaz JavaScript
+        //Para obtener los valores Correspondientes al nombre de usuario y correo
+        final JavaScriptInterface n =new JavaScriptInterface(this);
+        //La funcion interface se llamara AndroidFunction
+        myWebView.addJavascriptInterface(n,"AndroidFunction");
+        //Cargamos la pagina.
+        myWebView.loadUrl(Estructura.ROOT);
     }
 
-    // Inject CSS method: read style.css from assets folder
-// Append stylesheet to document head
     private void injectCSS() {
+        //Inyeccion de CSS para quitar barra de navegacion.
         try {
             InputStream inputStream = getAssets().open("style.css");
             byte[] buffer = new byte[inputStream.available()];
@@ -113,10 +96,6 @@ public class Principal extends AppCompatActivity
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 
     @Override
@@ -125,9 +104,12 @@ public class Principal extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //Si en el WebView Podemos Volver entonces volvemos; sino salimos de la aplicacion
+            if(myWebView.canGoBack())
+            myWebView.goBack();
+            else
+                super.onBackPressed();
         }
-
     }
 
     @Override
@@ -148,8 +130,11 @@ public class Principal extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadpage(String pagina){
+        myWebView.loadUrl(pagina);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -157,21 +142,62 @@ public class Principal extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        }
-
+        //Seleccion de las diferentes categorias
+        if (id == R.id.nav_Administrativo)
+           loadpage(Estructura.ROOT);
+        else if(id == R.id.nav_Direccion)
+            loadpage(Estructura.ROOT);
+            else if (id == R.id.nav_Academico)
+            loadpage(Estructura.ROOT);
+        else if(id == R.id.nav_Cultural)
+            loadpage(Estructura.ROOT);
+        else if(id == R.id.nav_Deportivo)
+            loadpage(Estructura.ROOT);
+        else if(id == R.id.nav_Salud)
+            loadpage(Estructura.ROOT);
+        else if(id == R.id.nav_Investigacion)
+            loadpage(Estructura.ROOT);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
+    public void login(View v){
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        loadpage(Estructura.LOGIN);
+    }
 
+    public class JavaScriptInterface{
+        //Interfaz de JavaScript
+        Context mContext;
+        JavaScriptInterface(Context c){
+            mContext=c;
+        }
+        //Metodo de Interfaz
+        @JavascriptInterface
+        public void sendname(String text) {
+            final String nombre = text;
+            TextView name=(TextView) findViewById( R.id.nombre);
+            name.setOnClickListener(null);
+            name.setText(nombre);
+
+        }
+        @JavascriptInterface
+        public void sendemail(String text) {
+            final String mail = text;
+            TextView correo=(TextView) findViewById( R.id.correo);
+            correo.setOnClickListener(null);
+            correo.setText(mail);
+            Toast.makeText(mContext,mail,Toast.LENGTH_LONG);
+        }
+
+    }
+
+    public class Estructura{
+        final static String ROOT="http://mercurius-swfipn.rhcloud.com/";
+        final static String LOGIN=ROOT+"/login.php";
+        final static String EDITOR=ROOT+"/editor.php";
+
+    }
 }

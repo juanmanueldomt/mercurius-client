@@ -8,8 +8,8 @@
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1" />
         <option name="modules">
           <set>
-            <option value="/mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa" />
-            <option value="/mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa/app" />
+            <option value="/mnt/6C2F9410551D6B93/Workspaces/mercurius-client" />
+            <option value="/mnt/6C2F9410551D6B93/Workspaces/mercurius-client/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
