@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +19,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,7 +74,7 @@ public class Principal extends AppCompatActivity
         //Para obtener los valores Correspondientes al nombre de usuario y correo
         final JavaScriptInterface n =new JavaScriptInterface(this);
         //La funcion interface se llamara AndroidFunction
-        myWebView.addJavascriptInterface(n,"AndroidFunction");
+        myWebView.addJavascriptInterface(n,"AndroidNav");
         //Cargamos la pagina.
         myWebView.loadUrl(Estructura.ROOT);
     }
@@ -157,6 +159,28 @@ public class Principal extends AppCompatActivity
             loadpage(Estructura.ROOT);
         else if(id == R.id.nav_Investigacion)
             loadpage(Estructura.ROOT);
+        else if(id == R.id.logout) {
+            loadpage(Estructura.LOGOUT);
+            myWebView.clearHistory();
+            TextView logtxt=(TextView) findViewById(R.id.nombre);
+            logtxt.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                    loadpage(Estructura.LOGIN);
+                }
+            });
+            TextView regtxt=(TextView) findViewById(R.id.correo);
+            regtxt.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                    loadpage(Estructura.REGISTER);
+                }
+            });
+            logtxt.setText("Ingresa");
+            regtxt.setText("Registrate");
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -176,28 +200,27 @@ public class Principal extends AppCompatActivity
         }
         //Metodo de Interfaz
         @JavascriptInterface
-        public void sendname(String text) {
-            final String nombre = text;
+        public void setProperty(String iname,String imail) {
+            final String nombre = iname;
+            final String mail = imail;
+
             TextView name=(TextView) findViewById( R.id.nombre);
             name.setOnClickListener(null);
             name.setText(nombre);
 
-        }
-        @JavascriptInterface
-        public void sendemail(String text) {
-            final String mail = text;
             TextView correo=(TextView) findViewById( R.id.correo);
             correo.setOnClickListener(null);
             correo.setText(mail);
-            Toast.makeText(mContext,mail,Toast.LENGTH_LONG);
+            Toast.makeText(mContext,imail,Toast.LENGTH_LONG);
         }
-
     }
 
     public class Estructura{
-        final static String ROOT="http://mercurius-swfipn.rhcloud.com/";
+        final static String ROOT="http://10.42.0.1/mercurius";
         final static String LOGIN=ROOT+"/login.php";
         final static String EDITOR=ROOT+"/editor.php";
+        final static String LOGOUT=ROOT+"/logout.php";
+        final static String REGISTER=ROOT+"/register.php";
 
     }
 }

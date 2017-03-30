@@ -2,17 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_Administrativo" android:icon="@drawable/ic_menu_camera"
-            android:title="Administrativo" />
-        <item android:id="@+id/nav_Direccion" android:icon="@drawable/ic_menu_gallery"
-            android:title="Direccion" />
-        <item android:id="@+id/nav_Academico" android:icon="@drawable/ic_menu_gallery"
-            android:title="Academico" />
-        <item android:id="@+id/nav_Cultural" android:icon="@drawable/ic_menu_gallery"
-            android:title="Cultural" />
-        <item android:id="@+id/nav_Deportivo" android:title="Deportivo" android:icon="@drawable/ic_menu_gallery"/>
-        <item android:id="@+id/nav_Salud" android:title="Salud" android:icon="@drawable/ic_menu_gallery"/>
-        <item android:id="@+id/nav_Investigacion" android:title="Investigacion" android:icon="@drawable/ic_menu_gallery"/>
+        <item android:id="@+id/nav_Administrativo"  android:icon="@drawable/ic_menu_camera"  android:title="Administrativo" />
+        <item android:id="@+id/nav_Direccion"  android:icon="@drawable/ic_menu_gallery" android:title="Direccion" />
+        <item android:id="@+id/nav_Academico"  android:icon="@drawable/ic_menu_gallery" android:title="Academico" />
+        <item android:id="@+id/nav_Cultural"   android:icon="@drawable/ic_menu_gallery" android:title="Cultural" />
+        <item android:id="@+id/nav_Deportivo"  android:icon="@drawable/ic_menu_gallery" android:title="Deportivo"/>
+        <item android:id="@+id/nav_Salud"      android:icon="@drawable/ic_menu_gallery" android:title="Salud"/>
+        <item android:id="@+id/nav_Investigacion"   android:icon="@drawable/ic_menu_gallery" android:title="Investigacion"/>
+        <item android:id="@+id/logout"    android:icon="@drawable/ic_menu_send" android:title="Salir" />
     </group>
 
 </menu>

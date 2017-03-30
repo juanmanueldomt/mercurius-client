@@ -22,6 +22,11 @@ ESTE PROYECTO SURGE PARA CUBRIR LA NECESIDAD DE DIFUSION DEL BOLETIN UNIVERSITAR
 ## INSTRUCCIONES ##
 * Proximamente
 ## VERSIONES ##
+>Version 0.2
+23/03/17    @juanmanueldomt  
+-Implementacion de Interfaz JavaScript Completa  
+-Menus  
+
 >Version 0.1
 23/03/17    @juanmanueldomt  
 -Implementacion de Interfaz JavaScript  
