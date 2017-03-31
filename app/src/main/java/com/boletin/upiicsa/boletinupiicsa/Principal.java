@@ -1,6 +1,7 @@
 package com.boletin.upiicsa.boletinupiicsa;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -24,11 +26,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     WebView myWebView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Metodo Cargado al abrir la aplicacion
@@ -59,7 +65,7 @@ public class Principal extends AppCompatActivity
         myWebView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
+        CookieManager.getInstance().setAcceptCookie(true);
         myWebView.setWebViewClient(
                 //Cliente Web Personalizado con Inyeccion de CSS
                 new WebViewClient() {
@@ -139,26 +145,32 @@ public class Principal extends AppCompatActivity
         myWebView.loadUrl(pagina);
     }
 
+    private void loadpage(String pagina,String tag){
+        myWebView.loadUrl(pagina+"?tag="+tag);
+           }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         //Seleccion de las diferentes categorias
-        if (id == R.id.nav_Administrativo)
-           loadpage(Estructura.ROOT);
+        if (id == R.id.nav_Administrativo) {
+
+            loadpage(Estructura.ROOT,"Administrativo");
+        }
         else if(id == R.id.nav_Direccion)
-            loadpage(Estructura.ROOT);
+            loadpage(Estructura.ROOT,"Direccion");
             else if (id == R.id.nav_Academico)
-            loadpage(Estructura.ROOT);
+            loadpage(Estructura.ROOT,"Academico");
         else if(id == R.id.nav_Cultural)
-            loadpage(Estructura.ROOT);
+            loadpage(Estructura.ROOT,"Cultural");
         else if(id == R.id.nav_Deportivo)
-            loadpage(Estructura.ROOT);
+            loadpage(Estructura.ROOT,"Deportivo");
         else if(id == R.id.nav_Salud)
-            loadpage(Estructura.ROOT);
-        else if(id == R.id.nav_Investigacion)
-            loadpage(Estructura.ROOT);
+            loadpage(Estructura.ROOT,"Salud");
+        else if(id == R.id.nav_Investigacion){
+           loadpage(Estructura.ROOT,"Investigacion");
+        }
         else if(id == R.id.logout) {
             loadpage(Estructura.LOGOUT);
             myWebView.clearHistory();
@@ -216,11 +228,12 @@ public class Principal extends AppCompatActivity
     }
 
     public class Estructura{
-        final static String ROOT="http://10.42.0.1/mercurius";
+        final static String ROOT="http://10.42.0.1/mercurius/index.php";
         final static String LOGIN=ROOT+"/login.php";
         final static String EDITOR=ROOT+"/editor.php";
         final static String LOGOUT=ROOT+"/logout.php";
         final static String REGISTER=ROOT+"/register.php";
+
 
     }
 }
