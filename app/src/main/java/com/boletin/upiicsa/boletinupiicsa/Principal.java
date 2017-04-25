@@ -228,7 +228,7 @@ public class Principal extends AppCompatActivity
     }
 
     public class Estructura{
-        final static String ROOT="http://10.42.0.1/mercurius/index.php";
+        final static String ROOT="http://mercurius-swfipn.rhcloud.com";
         final static String LOGIN=ROOT+"/login.php";
         final static String EDITOR=ROOT+"/editor.php";
         final static String LOGOUT=ROOT+"/logout.php";

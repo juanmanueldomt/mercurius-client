@@ -22,6 +22,11 @@ ESTE PROYECTO SURGE PARA CUBRIR LA NECESIDAD DE DIFUSION DEL BOLETIN UNIVERSITAR
 ## INSTRUCCIONES ##
 * Proximamente
 ## VERSIONES ##
+
+>Version 0.3
+25/04/17    @SmeAngeles  
+-Implementacion de iconos en el menu principal
+
 >Version 0.2.5
 23/03/17    @juanmanueldomt  
 -Implementacion de Categorias  

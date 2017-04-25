@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file:///mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa/BoletinUpiicsa.iml" filepath="/mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa/BoletinUpiicsa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file:///mnt/6C2F9410551D6B93/Workspaces/mercurius-client/app/app.iml" filepath="/mnt/6C2F9410551D6B93/Workspaces/mercurius-client/app/app.iml" />
       <module fileurl="file:///mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa/app/app.iml" filepath="/mnt/6C2F9410551D6B93/Workspaces/AndroidDevelopment/BoletinUpiicsa/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mercurius-client.iml" filepath="$PROJECT_DIR$/mercurius-client.iml" />
       <module fileurl="file:///mnt/6C2F9410551D6B93/Workspaces/mercurius-client/mercurius-client.iml" filepath="/mnt/6C2F9410551D6B93/Workspaces/mercurius-client/mercurius-client.iml" />
     </modules>
   </component>

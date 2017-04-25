@@ -2,13 +2,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_Administrativo"  android:icon="@drawable/ic_menu_camera"  android:title="Administrativo" />
-        <item android:id="@+id/nav_Direccion"  android:icon="@drawable/ic_menu_gallery" android:title="Direccion" />
-        <item android:id="@+id/nav_Academico"  android:icon="@drawable/ic_menu_gallery" android:title="Academico" />
-        <item android:id="@+id/nav_Cultural"   android:icon="@drawable/ic_menu_gallery" android:title="Cultural" />
-        <item android:id="@+id/nav_Deportivo"  android:icon="@drawable/ic_menu_gallery" android:title="Deportivo"/>
-        <item android:id="@+id/nav_Salud"      android:icon="@drawable/ic_menu_gallery" android:title="Salud"/>
-        <item android:id="@+id/nav_Investigacion"   android:icon="@drawable/ic_menu_gallery" android:title="Investigacion"/>
+        <item
+            android:id="@+id/nav_Administrativo"
+            android:icon="@drawable/ic_menu_admon"
+            android:title="Administrativo" />
+        <item
+            android:id="@+id/nav_Direccion"
+            android:icon="@drawable/ic_menu_direc"
+            android:title="Direccion" />
+        <item
+            android:id="@+id/nav_Academico"
+            android:icon="@drawable/ic_menu_academico"
+            android:title="Academico" />
+        <item
+            android:id="@+id/nav_Cultural"
+            android:icon="@drawable/ic_menu_culture"
+            android:title="Cultural" />
+        <item
+            android:id="@+id/nav_Deportivo"
+            android:icon="@drawable/ic_menu_deportes"
+            android:title="Deportivo" />
+        <item
+            android:id="@+id/nav_Salud"
+            android:icon="@drawable/ic_menu_salud1"
+            android:title="Salud" />
+        <item
+            android:id="@+id/nav_Investigacion"
+            android:icon="@drawable/ic_menu_invest"
+            android:title="Investigacion" />
         <item android:id="@+id/logout"    android:icon="@drawable/ic_menu_send" android:title="Salir" />
     </group>
 
