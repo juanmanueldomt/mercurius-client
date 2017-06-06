@@ -154,13 +154,13 @@ public class Principal extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         //Seleccion de las diferentes categorias
-        if (id == R.id.nav_Administrativo) {
-
+        if (id == R.id.nav_Administrativo)
             loadpage(Estructura.ROOT,"Administrativo");
-        }
+        else if(id == R.id.nav_Inicio)
+            loadpage(Estructura.ROOT);
         else if(id == R.id.nav_Direccion)
             loadpage(Estructura.ROOT,"Direccion");
-            else if (id == R.id.nav_Academico)
+        else if (id == R.id.nav_Academico)
             loadpage(Estructura.ROOT,"Academico");
         else if(id == R.id.nav_Cultural)
             loadpage(Estructura.ROOT,"Cultural");
